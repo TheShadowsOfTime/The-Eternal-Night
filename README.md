@@ -5,7 +5,7 @@ It has an in-depth storyline that tells the story of a valient young knight tryi
 darkness.
 
 <p>Language: Java</p>
-  <p>version: Java 7, in the process of upgrading to Java 8</p>
+<p>Java Version: Java 7, in the process of upgrading to Java 8</p>
 <p>Platform: PC and Mac</p>
 <p>Version: Indev 0.0.1 Pre-Release</p>
 <p>Release Date: TBD</p>
