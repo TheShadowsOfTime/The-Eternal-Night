@@ -17,10 +17,10 @@ public class TheEternalNight extends JFrame {
     public static AbstractGUI missionSelect;
 
     public TheEternalNight () {
-        setLayout(new FlowLayout());
         setTitle("The Eternal Night");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(new Dimension(650, 400));
+        setLayout(new FlowLayout());
         setVisible(true);
 
         mainMenu = new GUIMainMenu(this, "Main Menu", 0);

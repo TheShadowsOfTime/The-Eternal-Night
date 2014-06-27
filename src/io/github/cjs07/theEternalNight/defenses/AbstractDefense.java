@@ -1,4 +1,4 @@
-package defenses;
+package io.github.cjs07.theEternalNight.defenses;
 
 /**
  * Created by CJ on 6/15/2014.

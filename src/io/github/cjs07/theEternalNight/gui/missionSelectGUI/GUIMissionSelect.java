@@ -28,8 +28,6 @@ public class GUIMissionSelect extends AbstractGUI {
 
     public GUIMissionSelect(TheEternalNight game, String name, int id) {
         super(game, name, id);
-        setLocation(0, 0);
-        setSize(640, 400);
 
         missionArea = new JComboBox();
         start = new JButton("Start Mission");

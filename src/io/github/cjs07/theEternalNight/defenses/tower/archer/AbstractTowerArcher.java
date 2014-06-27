@@ -1,7 +1,7 @@
-package defenses.tower.archer;
+package io.github.cjs07.theEternalNight.defenses.tower.archer;
 
-import defenses.EnumDefenseType;
-import defenses.tower.AbstractTower;
+import io.github.cjs07.theEternalNight.defenses.EnumDefenseType;
+import io.github.cjs07.theEternalNight.defenses.tower.AbstractTower;
 
 /**
  * Created by CJ on 6/16/2014.

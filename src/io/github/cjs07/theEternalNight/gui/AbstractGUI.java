@@ -30,6 +30,9 @@ public abstract class AbstractGUI extends JPanel implements Runnable{
             this.name = name;
             this.id = id;
 
+            setBounds(0, 0, 650, 400);
+            setLayout(new FlowLayout());
+
             System.out.println("[GUI Initialization] GUI " + name + " successfully initialized at space " + id +
                     ".");
         }
