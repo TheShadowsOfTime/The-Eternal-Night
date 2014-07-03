@@ -29,14 +29,23 @@ public class TheEternalNight extends JFrame {
         loadGUI(mainMenu);
     }
 
+    /**
+     * Adds a GUI to the frame. After initial call, should always be called in combination with the removeGUI method.
+     * @param gui an object of type AbstractGUI. Used to identify the GUI being added. This object is set as the
+     *            content pane of the frame.
+     */
     public void loadGUI(AbstractGUI gui) {
-        add(gui);
+        setContentPane(gui);
         gui.closed = false;
         System.out.println("[Display] GUI \"" + gui.name + "\" successfully loaded.");
     }
 
+    /**
+     * Removes a GUI from the frame. Should always be called in combination with the loadGUI method, so the GUI that
+     * is being removed is actually removed from the frame.
+     * @param gui an object of type AbstractGUI. Used to identify the GUI being removed.
+     */
     public void closeGUI (AbstractGUI gui) {
-        remove(gui);
         gui.closed = true;
         System.out.println("[Display] GUI \"" + gui.name + "\" successfully closed.");
     }

@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
  * Created by CJ on 6/8/2014.
  * Developed for the The Eternal Night project.
  */
+//TODO: ALTER THIS CLASS TO MAKE GUI A MENU WITH A SCROLLABLE LIST OF MISSIONS ON ONE SIDE
 public class GUIMissionSelect extends AbstractGUI {
 
     Thread missionSelectThread = new Thread(this);
@@ -23,16 +24,21 @@ public class GUIMissionSelect extends AbstractGUI {
     int selectedMission;
 
     //GUI Components
+    JPanel panel; //JPanel used for holding the components of the GUI
+
     JComboBox missionArea;
     JButton start;
 
     public GUIMissionSelect(TheEternalNight game, String name, int id) {
         super(game, name, id);
 
+        setLayout(new BorderLayout());
+
+        panel = new JPanel();
         missionArea = new JComboBox();
         start = new JButton("Start Mission");
 
-        add(missionArea);
+        panel.add(missionArea);
 
         for (int i = 0; i < Mission.missions.length; i++) {
             missionArea.addItem("Test " + i);
@@ -43,16 +49,21 @@ public class GUIMissionSelect extends AbstractGUI {
                 selectedMission = missionArea.getSelectedIndex();
             }
         });
+
+        add(panel, BorderLayout.NORTH);
+        panel.setBackground(Color.BLACK);
+
         missionSelectThread.start();
     }
 
     @Override
     public void paintComponent(Graphics g){
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, 650, 400);
+        g.fillRect(0, 0, game.getWidth(), game.getHeight());
         g.setColor(Color.WHITE);
         g.setFont(new Font ("Courier New", Font.BOLD, 24));
-        g.drawString("Selected mission is: " + selectedMission, 325, 200);
+        g.drawString("Selected mission is: " + selectedMission, (getWidth() / 2) - (getWidth() / 4),
+                getHeight() / 2);
     }
 
     @Override
