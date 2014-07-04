@@ -5,17 +5,19 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Created by CJ on 6/14/2014.
- * Developed for the The Eternal Night project.
+ * An abstract class used for constructing missions. This class can be used to access the information pertinent to a
+ * mission. Mission details can be inputted as parameters to constructor, or read from a file.
+ * @author cjs07
  */
 public abstract class Mission {
 
     public static Mission[] missions = new Mission[100];
 
-    public String name;
-    public String description;
-    public Mission prerequisute;
-    public int id;
+    private String name;
+    private String description;
+    private Mission prerequisite;
+
+    private int id;
 
     File data;
     Scanner reader;
@@ -29,7 +31,7 @@ public abstract class Mission {
             missions[id] = this;
             this.name = name;
             this.description = description;
-            this.prerequisute = prerequisite;
+            this.prerequisite = prerequisite;
             this.id = id;
 
             System.out.println("[Mission Initialization] Mission " + name + " successfully initialized with " +
@@ -49,9 +51,47 @@ public abstract class Mission {
         description = reader.nextLine();
         for (int i = 0; i < missions.length; i++) {
             if (reader.nextLine().equals(missions[i].name)) {
-                prerequisute = missions[i];
+                prerequisite = missions[i];
             }
         }
         id = Integer.parseInt(reader.nextLine());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Mission getPrerequisite() {
+        return prerequisite;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id of the mission. Has no real use since the id of a mission should not be changed.
+     * @param id the new id for the mission
+     * @throws IllegalArgumentException if the new id is already the id of an existing mission
+     */
+    @Deprecated
+    public void setId(int id) {
+        if (missions[id] != null) {
+            throw new IllegalArgumentException("Mission with id " + id + " already exists. Two mission cannot have " +
+                    "the same id. No changes can be made");
+        }
+        this.id = id;
     }
 }
