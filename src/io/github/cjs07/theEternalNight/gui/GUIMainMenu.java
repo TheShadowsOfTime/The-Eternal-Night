@@ -8,8 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by CJ on 6/8/2014.
- * Developed for the The Eternal Night project.
+ * This subclass of AbstractGUI represents the main menu of the game. Contains three buttons, Start Game, Options, and
+ * Exit Game. Start Game opens the Mission Select GUI, Options opens the options menu, and Exit Game calls System.exit.
+ * Currently, this GUI cannot be accessed outside of when the game starts.
  */
 public class GUIMainMenu extends AbstractGUI {
 
@@ -20,6 +21,13 @@ public class GUIMainMenu extends AbstractGUI {
     JButton options;
     JButton exit;
 
+    /**
+     * Constructs a new GUI representing the main menu. All variables are initialized here. Should only be called once
+     * to prevent an abundance of threads from being created.
+     * @param game an object of type TheEternalNight. Used to gain access to the variables for changing the open GUI
+     * @param name the name of the GUI
+     * @param id the id of the GUI. Used for the GUI array that contains all GUIs that are part if the game
+     */
     public GUIMainMenu(final TheEternalNight game, String name, int id) {
         super(game, name, id);
 
@@ -57,15 +65,12 @@ public class GUIMainMenu extends AbstractGUI {
         mainMenuThread.start();
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
-
-    }
-
+    /**
+     * Called when the thread for the GUI is started. Contains an infinite loop that revalidates the layout of the GUI.
+     */
     @Override
     public void run() {
         while (true) {
-            repaint();
             revalidate();
         }
     }

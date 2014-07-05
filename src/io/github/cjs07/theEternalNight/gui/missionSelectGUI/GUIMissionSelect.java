@@ -10,8 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by CJ on 6/8/2014.
- * Developed for the The Eternal Night project.
+ * This class represents a GUI that allows for the selection of missions. Missions are selected through a drop down
+ * menu represented by a JComboBox missionArea. The selected mission is represented by an integer, selectedMission.
+ * Contains a second JPanel used for holding components, and a JButton that starts missions.
  */
 //TODO: ALTER THIS CLASS TO MAKE GUI A MENU WITH A SCROLLABLE LIST OF MISSIONS ON ONE SIDE
 public class GUIMissionSelect extends AbstractGUI {
@@ -29,6 +30,12 @@ public class GUIMissionSelect extends AbstractGUI {
     JComboBox missionArea;
     JButton start;
 
+    /**
+     * Constructs a new GUI representing the mission selection GUI. Should only be called once.
+     * @param game an object of type TheEternalNight. Used to gain access to the variables for changing the open GUI
+     * @param name the name of the GUI
+     * @param id the id of the GUI. Used for the GUI array that contains all GUIs that are part if the game
+     */
     public GUIMissionSelect(TheEternalNight game, String name, int id) {
         super(game, name, id);
 
@@ -56,6 +63,10 @@ public class GUIMissionSelect extends AbstractGUI {
         missionSelectThread.start();
     }
 
+    /**
+     * Paints the component. Called by components manager when repaint() is called.
+     * @param g a graphics context used for painting.
+     */
     @Override
     public void paintComponent(Graphics g){
         g.setColor(Color.BLACK);
@@ -66,6 +77,9 @@ public class GUIMissionSelect extends AbstractGUI {
                 getHeight() / 2);
     }
 
+    /**
+     * Called when the thread is started. Revalidates the layout and repaints the component.
+     */
     @Override
     public void run() {
         while (true) {
