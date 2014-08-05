@@ -48,6 +48,8 @@ public class TheEternalNight extends JFrame {
     public void closeGUI (AbstractGUI gui) {
         gui.closed = true;
         System.out.println("[Display] GUI \"" + gui.name + "\" successfully closed.");
+        repaint();
+        revalidate();
     }
 
     public static void main (String[] args) {
