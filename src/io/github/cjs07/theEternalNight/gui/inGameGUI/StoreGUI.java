@@ -2,13 +2,29 @@ package io.github.cjs07.theEternalNight.gui.inGameGUI;
 
 import io.github.cjs07.theEternalNight.core.TheEternalNight;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Represents the in game store. Contains many JButtons representing possible purchases and their prices. Occupies
  * BorderLayout.SOUTH
  */
 public class StoreGUI extends InGameGUIComponent {
+
+    private ActionListener buttonAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            StoreButton src = (StoreButton) e.getSource();
+            src.onPush();
+            repaint();
+            revalidate();
+        }
+    };
+
+
+
     /**
-     * Constructs the GUI. Should only be called once.
+     * Constructs the store's GUI. Should only be called once per mission.
      * @param game an object of type TheEternalNight. Used to gain access to the variables for changing the open GUI
      * @param name the name of the GUI
      * @param id the id of the GUI. Used for the GUI array that contains all GUIs that are part if the game
