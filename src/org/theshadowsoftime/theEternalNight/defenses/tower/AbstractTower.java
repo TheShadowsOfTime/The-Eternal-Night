@@ -4,12 +4,22 @@ import org.theshadowsoftime.theEternalNight.defenses.AbstractDefense;
 import org.theshadowsoftime.theEternalNight.defenses.EnumDefenseType;
 
 /**
- * Created by CJ on 6/16/2014.
- * Developed for the The Eternal Night project.
+ *
  */
 public abstract class AbstractTower extends AbstractDefense {
-    protected AbstractTower(String name, EnumDefenseType type, boolean hasRange, boolean hasUpgrades,
-                            boolean killable, int power, int sps, int range, int health, int upgradeCost, int id) {
-        super(name, type, hasRange, hasUpgrades, killable, power, sps, range, health, upgradeCost ,id);
+
+    protected AbstractTower upgrade;
+
+    protected AbstractTower(String name, EnumDefenseType type, boolean hasUpgrades, int cost, int power, int sps,
+                            int range, int health, int id) {
+        super(name, type, hasUpgrades, cost, power, sps, range, health, id);
+    }
+
+    public AbstractTower upgrade(){
+        return upgrade;
+    }
+
+    public Class<? extends AbstractTower> getUpgradeAsClass() {
+        return upgrade.getClass();
     }
 }

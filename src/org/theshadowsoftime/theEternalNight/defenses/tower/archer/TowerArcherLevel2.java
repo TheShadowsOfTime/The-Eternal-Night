@@ -7,8 +7,8 @@ import org.theshadowsoftime.theEternalNight.defenses.EnumDefenseType;
  * Developed for the The Eternal Night project.
  */
 public class TowerArcherLevel2 extends AbstractTowerArcher {
-    protected TowerArcherLevel2(String name, EnumDefenseType type, boolean hasRange, boolean hasUpgrades,
-                                boolean killable, int power, int sps, int range, int health, int upgradeCost, int id) {
-        super(name, type, hasRange, hasUpgrades, killable, power, sps, range, health, upgradeCost, id);
+    protected TowerArcherLevel2(int id) {
+        super("Archer Level 2", EnumDefenseType.TOWER, true, 160, 15, 2, 7, 0, id);
+        upgrade = new TowerArcherLevel3(1);
     }
 }

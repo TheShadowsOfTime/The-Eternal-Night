@@ -8,9 +8,8 @@ import org.theshadowsoftime.theEternalNight.defenses.tower.archer.AbstractTowerA
  * Developed for the The Eternal Night project.
  */
 public abstract class AbstractTowerArcherLevel4 extends AbstractTowerArcher {
-    protected AbstractTowerArcherLevel4(String name, EnumDefenseType type, boolean hasRange,
-                                        boolean hasUpgrades, boolean killable, int power, int sps, int range,
-                                        int health, int upgradeCost, int id) {
-        super(name, type, hasRange, hasUpgrades, killable, power, sps, range, health, upgradeCost, id);
+    protected AbstractTowerArcherLevel4(String name, EnumDefenseType type, boolean hasUpgrades, int cost,
+                                        int power, int sps, int range, int health, int id) {
+        super(name, type, hasUpgrades, cost, power, sps, range, health, id);
     }
 }

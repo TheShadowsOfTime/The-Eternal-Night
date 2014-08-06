@@ -1,8 +1,7 @@
 package org.theshadowsoftime.theEternalNight.defenses;
 
 /**
- * Created by CJ on 6/15/2014.
- * Developed for the The Eternal Night project.
+ *
  */
 public enum EnumDefenseType {
     TOWER("Tower", true, false, 0),
@@ -15,6 +14,10 @@ public enum EnumDefenseType {
     int id;
 
     EnumDefenseType(String typeName, boolean hasRange, boolean killable, int id) {
+        this.typeName = typeName;
+        this.hasRange = hasRange;
+        this.killable = killable;
+        this.id = id;
     }
 
     public String getTypeName() {
